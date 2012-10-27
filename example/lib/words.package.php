@@ -50,7 +50,12 @@ class Words {
 
 		$sentence[0] = ucfirst($sentence[0]);
 
-		return implode(" ", $sentence) . ".";
+		return implode(" ", $sentence) . $this->getPunctuation();
+	}
+
+	public function getPunctuation() {
+		$punctuation = array(".", "!", "?", "!?");
+		return $punctuation[ rand(0,count($punctuation) - 1) ];
 	}
 
 	public function addWord($word, $previous = null, $next = null) {

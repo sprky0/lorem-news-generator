@@ -3,13 +3,12 @@
 include("lib/words.package.php");
 include("modules/magpierss-0.72/rss_fetch.inc");
 
-// RSS http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss
-
 // make up bible shit:
 /*
 $words = new Words();
 $words->parseFile("source/kjb.txt");
 echo $words->getSentence() . "\n";
+exit();
 */
 
 // make up stp lyrics:
@@ -21,8 +20,24 @@ $words->parseFile("source/stp-wicked_garden.txt");
 $words->parseFile("source/stp-sin.txt");
 $words->parseFile("source/stp-naked_sunday.txt");
 $words->parseFile("source/stp-creep.txt");
-echo $words->getSentence() . "\n";
 */
+
+
+$words = new Words();
+$words->parseFile("source/lorem-translated-english.txt");
+
+for ($p = 0; $p < 10; $p++) {
+
+	echo "<p>";
+	for ($i = 0; $i < rand(10,20); $i++)
+		echo $words->getSentence() . "  ";
+	echo "</p>";
+
+}
+
+exit();
+
+
 
 $feeds = array(
 	"http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss",
@@ -41,7 +56,7 @@ foreach($feeds as $cur_feed) {
 	$rss = @fetch_rss($cur_feed);
 
 	foreach($rss->items as $k => $item) {
-	
+
 		$head = strip_tags($item["title"]);
 		// $body = strip_tags($item["description"]);
 		$body = strip_tags($item["summary"]);
@@ -78,6 +93,8 @@ for ($i = 0; $i < 10; $i++) {
 
 </head>
 <body>
+
+<h1>Todays Random News</h1>
 
 <?php foreach ($new_articles as $article) { ?>
 	<h2><?php echo $article->headline; ?></h2>
