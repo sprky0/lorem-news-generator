@@ -1,4 +1,4 @@
 Lorem-News
 ==========
 
-Generate random "Lorem Ipsum" style copy based on RSS feeds.
+Generate random "Lorem Ipsum" style copy based on RSS feeds or text files.

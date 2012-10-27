@@ -24,7 +24,15 @@ $words->parseFile("source/stp-creep.txt");
 
 
 $words = new Words();
-$words->parseFile("source/lorem-translated-english.txt");
+// $words->parseFile("source/lorem-translated-english.txt");
+
+// http://www.william-shakespeare.info/william-shakespeare-sonnets.htm
+$words->parseFile("source/sonnet-18.txt");
+$words->parseFile("source/sonnet-27.txt");
+$words->parseFile("source/sonnet-29.txt");
+$words->parseFile("source/sonnet-116.txt");
+$words->parseFile("source/sonnet-126.txt");
+$words->parseFile("source/sonnet-130.txt");
 
 for ($p = 0; $p < 10; $p++) {
 
