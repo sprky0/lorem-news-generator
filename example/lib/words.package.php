@@ -54,7 +54,7 @@ class Words {
 	}
 
 	public function getPunctuation() {
-		$punctuation = array(".", "!", "?", "!?");
+		$punctuation = array(".", ".", ".", ".", ".", "!", "?", "!?");
 		return $punctuation[ rand(0,count($punctuation) - 1) ];
 	}
 
@@ -177,6 +177,9 @@ class Words {
 					$word = str_replace("]","",$word);
 					$word = str_replace("{","",$word);
 					$word = str_replace("}","",$word);
+					$word = str_replace("-","",$word);
+					$word = str_replace("  "," ",$word);
+					$word = str_replace(" ","",$word);
 
 					if (empty($word))
 						continue;
