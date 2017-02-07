@@ -1,0 +1,12 @@
+{
+    "name": "averybrooks/lorem-news-generator",
+    "authors": [
+        {
+            "name": "Avery Brooks",
+            "email": "averyjamesbrooks@gmail.com"
+        }
+    ],
+    "require": {
+        "simplepie/simplepie": "^1.4"
+    }
+}
