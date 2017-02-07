@@ -162,6 +162,10 @@ class Words {
 
 		$paragraphs = explode("\n\n", $data);
 
+		$stdOut = fopen('php://stdout', 'w');
+		fwrite($stdOut, "\noh hey, got some shit to parse\n");
+
+
 		// or do this ?
 		// $parts = preg_split('/\s+/', $str);
 
@@ -177,22 +181,30 @@ class Words {
 
 				for($i = 0; $i < $max; $i++) {
 
-					$word = trim($words[$i]);
+					// $word = trim($words[$i]);
+					$word = $words[$i];
 
 					$word = html_entity_decode($word);
 
+					$word = preg_replace("/[^A-Za-z0-9 ]/", '', $word);
+					fwrite($stdOut, $word . "|");
+
+					/*
 					foreach(["\"","(",")",";",":","&raquo;","&laquo;","[","]","{","}","-","  "," "] as $charToRemove) {
 						$word = str_replace($charToRemove,"",$word);
 					}
+					*/
 
 					if (empty($word))
 						continue;
 
+					/*
 					if (in_array($word, ["-","_",":",";"]))
 						continue;
 
 					if (is_numeric($word))
 						continue;
+					*/
 
 					$previous = isset($words[$i - 1]) ? $words[$i - 1] : null;
 					$next = isset($words[$i + 1]) ? $words[$i + 1] : null;
